@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-vite@latest . --template react)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(sleep 3 && cat /c/Users/ataw1/AppData/Local/Temp/claude/c--work-s-Claude-Code------------task-board/361a5570-c44d-47a1-a790-382148190d61/tasks/b1unniatg.output 2>&1)",
+      "Read(//c/Users/ataw1/AppData/Local/Temp/claude/c--work-s-Claude-Code------------task-board/361a5570-c44d-47a1-a790-382148190d61/tasks/**)",
+      "Bash(gh pr *)",
+      "Bash(cd \"/c/work_s/Claude Codeでゼロから開発を学ぼう/task-board\" && find .claude .vite -type f)",
+      "Read(//c/c/work_s/Claude Codeでゼロから開発を学ぼう/task-board/**)"
+    ]
+  }
+}
