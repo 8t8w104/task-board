@@ -9,34 +9,36 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Git 運用ルール
 
-### コード変更後は必ず GitHub にプッシュする
+### コード変更後は必ず feature ブランチ経由で PR を作成する
 
-コードを変更するたびに、以下の手順で GitHub にプッシュすること：
+main ブランチへの直接プッシュは禁止。必ず以下の手順で行うこと：
 
-1. 変更内容を確認する
+1. feature ブランチを作成する
+   ```
+   git checkout -b feature/作業内容
+   ```
 
+2. 変更内容を確認してステージングする
    ```
    git status
    git diff
-   ```
-
-2. 変更ファイルをステージングする
-
-   ```
    git add <変更したファイル>
    ```
 
-3. コミットメッセージは変更内容を端的に表す日本語または英語で記述する
-
+3. コミットする（何を変更したか分かるメッセージで）
    ```
    git commit -m "コミットメッセージ"
    ```
 
-4. GitHub にプッシュする
+4. feature ブランチをプッシュする
    ```
-   git push origin <ブランチ名>
+   git push origin feature/作業内容
+   ```
+
+5. Pull Request を作成する
+   ```
+   gh pr create --title "タイトル" --body "変更内容の説明"
    ```
 
 - コード変更のたびに必ずプッシュすること（作業終了時のまとめプッシュは不可）
-- コミットメッセージは何を変更したかが分かるように具体的に書くこと
-- main ブランチへの直接プッシュは避け、feature ブランチを使うこと
+- PR は GitHub CLI (`gh`) を使って作成すること
