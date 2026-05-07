@@ -13,8 +13,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 main ブランチへの直接プッシュは禁止。必ず以下の手順で行うこと：
 
-1. feature ブランチを作成する
+1. main を最新化してから feature ブランチを作成する
    ```
+   git checkout main
+   git pull origin main
    git checkout -b feature/作業内容
    ```
 
@@ -40,5 +42,11 @@ main ブランチへの直接プッシュは禁止。必ず以下の手順で行
    gh pr create --title "タイトル" --body "変更内容の説明"
    ```
 
+6. PR をマージして main に取り込む
+   ```
+   gh pr merge --merge --delete-branch
+   ```
+
 - コード変更のたびに必ずプッシュすること（作業終了時のまとめプッシュは不可）
-- PR は GitHub CLI (`gh`) を使って作成すること
+- PR の作成からマージまで GitHub CLI (`gh`) を使って完全自動で行うこと
+- マージ後はリモートの feature ブランチを削除すること（`--delete-branch`）
